@@ -9,24 +9,15 @@ This project is a prey/predator simulation featuring 2,600 autonomous agents. Ea
 - Go installed
 - Python installed
 
-## Installation
+## Installation on Linux
 1. Clone the project to a local directory:
    ```bash
    git clone <project_URL>
    ```
-2. Start the backend:
+2. Start the simulation:
    ```bash
-   cd back
-   go run .\main.go
-   ```
-3. Start the frontend:
-   ```bash
-   cd front
-   python -m http.server 8000
-   ```
-4. Open a web browser and go to:
-   ```
-   http://localhost:8000
+   chmod +x ./starth.sh
+   ./start.sh
    ```
 
 ## Optimization History

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agent Simulation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.3/pixi.min.js"></script>
+    <script src="script.js"></script>
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="rectangle info">
+        <h3>Agent Simulation</h3>
+        <p><b>Elapsed time: </b><span id="elapsedtime"></span></p>
+        <p><b>Number of Ticks: </b><span id="tickscount"></span></p>
+        <p><b>Framerate: </b><span id="framerate"></span></p>
+        <p><b>Server Tick Rate: </b><span id="tickrate"></span></p>
+        <p><b>Number of Agents: </b><span id="agentcount"></span></p>
+        <p><b>Number of Phidippus: </b><span id="phidicount"></span></p>
+        <p><b>Number of Flies: </b><span id="preycount"></span></p>
+    </div>
+
+    <div class="rectangle agent">
+        <p><b>Agent n°<span id="agentid"></span></b> <span id="agentname"></span></p>
+        <p>Generation n° <span id="nogen"></span></p>
+        <p>X: <span id="agentx"></span>, Y: <span id="agenty"></span></p>
+        <div class="row">
+            <div class="jauge_container" id="lifepoints">
+                <div class="jauge" id="jauge_lifepoints"></div>
+                <span>Lifepoints</span>
+            </div>
+            <div class="jauge_container" id="energy">
+                <div class="jauge" id="jauge_energy"></div>
+                <span>Energy</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="jauge_container" id="reproduction">
+                <div class="jauge" id="jauge_reproduction"></div>
+                <span>Reproduction</span>
+            </div>
+            <div class="jauge_container" id="digestion">
+                <div class="jauge" id="jauge_digestion"></div>
+                <span>Digestion</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="rectangle debug">
+        <p>Mouse position: <span id="mousepos"></span>, Simulation position: <span id="gridpos"></span>, Zoom scale: <span id="zoomscale"></span></p>
+    </div>
+
+    <div class="playpause">
+        <button class="button" id="playbutton">Play</button>
+        <button class="button" id="pausebutton">Pause</button>
+        <script>
+            document.getElementById('playbutton').addEventListener('click', function() {
+                fetch('http://localhost:8080/play', { method: 'POST' })
+                    .catch(error => {
+                        console.error('Error making play request:', error);
+                    });
+            });
+
+            document.getElementById('pausebutton').addEventListener('click', function() {
+                fetch('http://localhost:8080/pause', { method: 'POST' })
+                    .catch(error => {
+                        console.error('Error making pause request:', error);
+                    });
+            });
+        </script>
+    </div>
+
+    <div id="canvas-container">
+        <!-- The PixiJS canvas will be appended here -->
+    </div>
+</body>
+</html>
+

@@ -1,23 +1,48 @@
-# Projet Phidippus Regius
-### Contexte
-Projet de Systèmes Multi-Agents (AI30/IA04).   
-Les Phidippus Regius sont une espèce d'araignées se nourrissant d'insectes (drosophiles, mouches, etc.). Ce sont des araignées qui ne tissent pas de toile : elles chassent leurs proies. 
-Nous avons ainsi développé une simulation suivant le modèle proie-prédateur mettant en scène des Phidippus et des drosophiles, afin d'observer leurs interactions et les évolutions des populations.
+# Prey/Predator Simulation
 
-### Problématique
-Peut-on voir des comportements intéressants et réalistes émerger en simulant des populations de Phidippus Regius et de drosophiles ?
+<img src="./screenshot.png" alt="screen capture"/>
 
-### Résultats
-Les résultats montrent que bien que la simulation ne soit pas complètement réaliste, elle s'approche de la réalité sur certains aspects, avec notamment l'observation de lois réelles (sélection naturelle, cycle proie-prédateur).
+## Project Description
+This project is a prey/predator simulation featuring 2,600 autonomous agents. Each agent has a neural network brain implemented entirely from scratch, allowing it to make decisions based on its environment. The simulation demonstrates emergent behaviors and illustrates the theory of survival of the fittest, where only the most adaptive agents survive and reproduce.
 
-<img src="./capture_ecran.png" alt="screen capture"/>
+## Prerequisites
+- Go installed
+- Python installed
 
-# Installation
-### Prérequis
-- Avoir installé Go
-- Avoir installé Python
-### Installation et lancement de l'application
-- Cloner le projet dans un dossier
-- Se placer dans le back, puis lancer la commande `go run .\main.go`
-- Se placer dans le front, puis lancer la commande `python -m http.server 8000`
-- Ouvrir un navigateur et se rendre à l'adresse `localhost:8000`
+## Installation
+1. Clone the project to a local directory:
+   ```bash
+   git clone <project_URL>
+   ```
+2. Start the backend:
+   ```bash
+   cd back
+   go run .\main.go
+   ```
+3. Start the frontend:
+   ```bash
+   cd front
+   python -m http.server 8000
+   ```
+4. Open a web browser and go to:
+   ```
+   http://localhost:8000
+   ```
+
+## Optimization History
+
+For a simulation with 2,600 agents (RTX3070ti, i7-12700H):
+
+### Frontend
+- **Base Version AVG Framerate**: 30 ms per frame
+- **With "disableFriendlyErrors" Enabled**: 18 ms per frame
+- **Using PixiJS with Containers and WebGL**: Reduced latency to 7 ms per frame (≈ 144 FPS)
+
+## Technologies Used
+- Backend: Go
+- Frontend: JavaScript, PixiJS, HTML/CSS
+
+## Features
+- Real-time simulation with emergent behaviors
+- Autonomous agents controlled by simple neural networks
+- Smooth graphical visualization using PixiJS

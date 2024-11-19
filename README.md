@@ -16,7 +16,7 @@ This project is a prey/predator simulation featuring 2,600 autonomous agents. Ea
    ```
 2. Start the simulation:
    ```bash
-   chmod +x ./starth.sh
+   chmod +x ./start.sh
    ./start.sh
    ```
 
